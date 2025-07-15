@@ -67,7 +67,7 @@ if (produto instanceof Fruta fruta) {
 
 ---
 
-📈 Vantagens
+# 📈 Vantagens
 ✨ Código limpo e reutilizável
 
 🤖 Aproveitamento do polimorfismo para tratamento genérico
@@ -76,7 +76,7 @@ if (produto instanceof Fruta fruta) {
 
 📚 Excelente prática para aprendizado de POO em Java
 
-🛠️ Sugestões de Melhorias
+# 🛠️ Sugestões de Melhorias
 🔄 Implementar edição e remoção de produtos
 
 📋 Listagem separada por tipo de produto
@@ -85,26 +85,12 @@ if (produto instanceof Fruta fruta) {
 
 🧱 Aplicar arquitetura em camadas (MVC)
 
-💡 Requisitos
+# 💡 Requisitos
 Java 17 ou superior
 
 IDE recomendada: Eclipse, IntelliJ IDEA ou VS Code com extensão Java
 
-
-# 🧪 Exemplo de Uso
-
-```java
-Produto fruta = new Fruta("Maçã", "Vermelha", 2.50, 10);
-Produto verdura = new Verdura("Alface", true, 1.75, 5);
-
-lista.add(fruta);
-lista.add(verdura);
-
-for (Produto produto : lista) {
-    System.out.println(produto); // Usa o toString() sobrescrito
-}
-
-🧑‍💻 Autoria
+# 🧑‍💻 Autoria
 Desenvolvido como prática de Programação Orientada a Objetos em Java
 Disciplina: Programação Orientada a Objetos
 Instituição: SENAI — Jaraguá do Sul
