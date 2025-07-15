@@ -79,6 +79,7 @@ lista.add(verdura);
 for (Produto produto : lista) {
     System.out.println(produto); // Usa o toString() sobrescrito
 }
+```java
 
 📈 Vantagens
 ✨ Código limpo e reutilizável
