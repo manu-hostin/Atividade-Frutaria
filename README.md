@@ -67,20 +67,6 @@ if (produto instanceof Fruta fruta) {
 
 ---
 
-# 🧪 Exemplo de Uso
-
-```java
-Produto fruta = new Fruta("Maçã", "Vermelha", 2.50, 10);
-Produto verdura = new Verdura("Alface", true, 1.75, 5);
-
-lista.add(fruta);
-lista.add(verdura);
-
-for (Produto produto : lista) {
-    System.out.println(produto); // Usa o toString() sobrescrito
-}
-```java
-
 📈 Vantagens
 ✨ Código limpo e reutilizável
 
@@ -104,12 +90,23 @@ Java 17 ou superior
 
 IDE recomendada: Eclipse, IntelliJ IDEA ou VS Code com extensão Java
 
-📂 Estrutura de Classes
-Produto (abstract)
-├── Fruta
-└── Verdura
+
+# 🧪 Exemplo de Uso
+
+```java
+Produto fruta = new Fruta("Maçã", "Vermelha", 2.50, 10);
+Produto verdura = new Verdura("Alface", true, 1.75, 5);
+
+lista.add(fruta);
+lista.add(verdura);
+
+for (Produto produto : lista) {
+    System.out.println(produto); // Usa o toString() sobrescrito
+}
 
 🧑‍💻 Autoria
 Desenvolvido como prática de Programação Orientada a Objetos em Java
 Disciplina: Programação Orientada a Objetos
 Instituição: SENAI — Jaraguá do Sul
+
+
