@@ -3,13 +3,18 @@
 </p>
 
 <h1 align="center">🍎 FrutariaApp</h1>
-<p align="center">Sistema de cadastro de produtos usando <strong>Polimorfismo em Java</strong>.</p>
+
+<p align="center">
+  Sistema de cadastro de produtos usando <strong>Polimorfismo em Java</strong>
+</p>
 
 ---
 
 ## 📘 Sobre o Projeto
 
-O **FrutariaApp** é um sistema Java desenvolvido para praticar **Programação Orientada a Objetos**, com foco no uso de **polimorfismo**, **herança**, e **sobrescrita de métodos**. Permite cadastrar diferentes tipos de produtos (como frutas e verduras) em uma lista genérica, exibir seus dados de forma elegante com `toString()`, e usar `instanceof` para lógica condicional baseada no tipo.
+O **FrutariaApp** é um sistema Java desenvolvido para praticar **Programação Orientada a Objetos (POO)**, com foco no uso de **polimorfismo**, **herança** e **sobrescrita de métodos**.  
+
+Ele permite cadastrar diferentes tipos de produtos (como frutas e verduras) em uma lista genérica, exibir seus dados de forma elegante usando o método `toString()`, e aplicar lógica condicional com `instanceof` para identificar o tipo real dos objetos.
 
 ---
 
@@ -17,9 +22,9 @@ O **FrutariaApp** é um sistema Java desenvolvido para praticar **Programação 
 
 - ✅ Cadastro de produtos (Fruta e Verdura)
 - ✅ Armazenamento genérico com `List<Produto>`
-- ✅ Exibição com `toString()` sobrescrito
-- ✅ Alternativa de exibição com `instanceof`
-- ✅ Estrutura pronta para novos tipos de produto
+- ✅ Exibição personalizada com sobrescrita do método `toString()`
+- ✅ Uso de `instanceof` para identificação do tipo de produto
+- ✅ Estrutura extensível para inclusão de novos tipos de produtos
 
 ---
 
@@ -27,49 +32,40 @@ O **FrutariaApp** é um sistema Java desenvolvido para praticar **Programação 
 
 ### 👨‍👩‍👧‍👦 Polimorfismo
 
-Permite usar uma lista genérica:
+Permite usar uma lista genérica que armazena objetos de diferentes subclasses:
 
 ```java
 List<Produto> lista = new ArrayList<>();
-
-Mesmo sendo do tipo Produto, ela pode armazenar objetos de qualquer subclasse (Fruta, Verdura, etc.).
+// Pode armazenar Fruta, Verdura, etc.
 
 📝 Sobrescrita do Método toString()
-Cada subclasse implementa sua versão:
+Cada subclasse implementa sua própria versão para exibir os dados:
 
-java
-Copiar
-Editar
 @Override
 public String toString() {
     return "Fruta [nome=" + nome + ", tipo=" + tipo + ", preço=" + preco + "]";
 }
-E é chamada automaticamente com:
 
-java
-Copiar
-Editar
-System.out.println(produto); // Chama o toString da subclasse
+Ao imprimir:
+
+System.out.println(produto); // Chama automaticamente o toString da subclasse
+
 🔍 Uso do instanceof
-Permite verificar o tipo real do produto:
+Permite verificar o tipo real do objeto para lógica condicional:
 
-java
-Copiar
-Editar
 if (produto instanceof Fruta fruta) {
     System.out.println("É uma fruta: " + fruta.getNome());
 } else if (produto instanceof Verdura verdura) {
     System.out.println("É uma verdura: " + verdura.getNome());
 }
+
 📦 Tipos de Produtos
 Produto	Classe	Atributos principais
 🍎 Fruta	Fruta	nome, tipo, preço, quantidade
-🥬 Verdura	Verdura	nome, orgânico (boolean), preço, quant
+🥬 Verdura	Verdura	nome, orgânico (boolean), preço, quantidade
 
 🧪 Exemplo de Uso
-java
-Copiar
-Editar
+
 Produto fruta = new Fruta("Maçã", "Vermelha", 2.50, 10);
 Produto verdura = new Verdura("Alface", true, 1.75, 5);
 
@@ -77,41 +73,40 @@ lista.add(fruta);
 lista.add(verdura);
 
 for (Produto produto : lista) {
-    System.out.println(produto); // Usa toString()
+    System.out.println(produto); // Usa o toString() sobrescrito
 }
+
 📈 Vantagens
 ✨ Código limpo e reutilizável
 
-🤖 Aproveitamento do polimorfismo
+🤖 Aproveitamento do polimorfismo para tratamento genérico
 
-🧩 Fácil adição de novos produtos
+🧩 Fácil extensão para novos tipos de produtos
 
-📚 Ideal para treinar conceitos de POO
+📚 Excelente prática para aprendizado de POO em Java
 
 🛠️ Sugestões de Melhorias
-🔄 Edição e remoção de produtos
+🔄 Implementar edição e remoção de produtos
 
-📋 Listagem separada por tipo
+📋 Listagem separada por tipo de produto
 
-💾 Persistência em arquivos ou banco
+💾 Persistência em arquivos ou banco de dados
 
-🧱 Separação de camadas (MVC)
+🧱 Aplicar arquitetura em camadas (MVC)
 
 💡 Requisitos
-Java 17+
+Java 17 ou superior
 
-IDE (Eclipse, IntelliJ ou VS Code com extensão)
+IDE recomendada: Eclipse, IntelliJ IDEA ou VS Code com extensão Java
 
 📂 Estrutura de Classes
-text
-Copiar
-Editar
 Produto (abstract)
 ├── Fruta
 └── Verdura
-🧑‍💻 Autoria
-Desenvolvido como prática de POO com Java
-📚 Disciplina: Programação Orientada a Objetos
-🏫 SENAI — Jaraguá do Sul
 
-<p align="center"> <img src="https://img.shields.io/badge/Java-17-red?style=for-the-badge&logo=java&logoColor=white"> <img src="https://img.shields.io/badge/OOP-Prática-blue?style=for-the-badge"> </p> ```
+🧑‍💻 Autoria
+Desenvolvido como prática de Programação Orientada a Objetos em Java
+Disciplina: Programação Orientada a Objetos
+Instituição: SENAI — Jaraguá do Sul
+
+<p align="center"> <img src="https://img.shields.io/badge/Java-17-red?style=for-the-badge&logo=java&logoColor=white" alt="Java 17" /> <img src="https://img.shields.io/badge/OOP-Prática-blue?style=for-the-badge" alt="OOP Prática" /> </p> ```
