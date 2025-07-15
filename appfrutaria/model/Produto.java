@@ -5,11 +5,11 @@ public class Produto {
 	protected String nome;
 	protected double preco;
 	protected int quantidade;
-	
+
 	public Produto(String nome, double preco, int quantidade) {
-		this.nome=nome;
-		this.preco=preco;
-		this.quantidade=quantidade;
+		this.nome = nome;
+		this.preco = preco;
+		this.quantidade = quantidade;
 	}
 
 	public String getNome() {
@@ -35,5 +35,9 @@ public class Produto {
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Produto: " + nome + " | Preço: R$" + preco + " | Quantidade: " + quantidade;
+	}
 }
