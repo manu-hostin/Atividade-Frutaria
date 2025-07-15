@@ -2,6 +2,7 @@ package br.com.appfrutaria.view;
 
 import br.com.appfrutaria.model.Fruta;
 import br.com.appfrutaria.model.Verdura;
+import br.com.appfrutaria.model.Produto;
 
 import java.util.Scanner;
 
@@ -20,25 +21,16 @@ public class Atendente {
 		this.leia = leia;
 	}
 
-	public int escolha() {
-		System.out.println("\n-------------------------------");
-		System.out.println("Olá!:)\nOque você deseja cadastrar?");
-		System.out.println("1. Fruta;");
-		System.out.println("2.  Verdura.");
-		System.out.print(">");
-		int escolha = leia.nextInt();
-		return escolha;
-	}
-
 	public int menuPrincipal() {
 		System.out.println("\n===============================");
 		System.out.println("      🌿 TABELA FRUTARIA 🌿");
 		System.out.println("===============================");
-		System.out.println("  1️⃣  Cadastrar produto");
-		System.out.println("  2️⃣  Listar produtos");
-		System.out.println("  3️⃣  Excluir produto");
+		System.out.println("  1️  Cadastrar fruta;");
+		System.out.println("  2️  Cadastrar Verdura;");
+		System.out.println("  3  Listar produtos;");
+		System.out.println("  4  Excluir produto.");
 		System.out.println("-------------------------------");
-		System.out.println("  0️⃣  Sair");
+		System.out.println("  0  Sair");
 		System.out.println("===============================");
 		System.out.print("Escolha uma opção: > ");
 		int opcaoMenu = leia.nextInt();
@@ -52,7 +44,7 @@ public class Atendente {
 		System.out.println("Cadastrar fruta:");
 		System.out.println("Digite o nome da fruta para cadastrar: ");
 		System.out.print(">");
-		String nome = leia.next();
+		String nome = leia.nextLine();
 		return nome;
 	}
 
@@ -61,7 +53,7 @@ public class Atendente {
 		System.out.println("Cadastrar verdura:");
 		System.out.println("Digite o nome da verdura para cadastrar: ");
 		System.out.print(">");
-		String nome = leia.next();
+		String nome = leia.nextLine();
 		return nome;
 	}
 
@@ -76,6 +68,7 @@ public class Atendente {
 		System.out.println("\nDigite a quantidade: ");
 		System.out.print(">");
 		int quantidade = leia.nextInt();
+		leia.nextLine();
 		return quantidade;
 	}
 
@@ -89,26 +82,23 @@ public class Atendente {
 	public String cadastrarTipoVerdura() {
 		System.out.println("\nDigite o tipo: ");
 		System.out.print(">");
-		String tipo = leia.next();
+		String tipo = leia.nextLine();
 		return tipo;
 	}
 
-	public void imprimirFruta(Fruta fruta) {
-		System.out.println("-------------------------------");
-		System.out.println("Listar fruta:");
-		System.out.println("Nome: " + fruta.getNome());
-		System.out.println("Preço: " + fruta.getPreco());
-		System.out.println("Quantidade: " + fruta.getQuantidade());
-		System.out.println("Peso: " + fruta.getPeso());
+	public void imprimirProduto(Produto produto) {
+		System.out.println("\n-------------------------------");
+		System.out.println(produto);
 	}
 
 	public void imprimirVerdura(Verdura verdura) {
-		System.out.println("-------------------------------");
-		System.out.println("Listar verdura:");
-		System.out.println("Nome: " + verdura.getNome());
-		System.out.println("Preço: " + verdura.getPreco());
-		System.out.println("Quantidade: " + verdura.getQuantidade());
-		System.out.println("Tipo: " + verdura.getTipo());
+		System.out.println("🥦 Verdura");
+		System.out.println(verdura);
+	}
+
+	public void imprimirFruta(Fruta fruta) {
+		System.out.println("🍎 Fruta");
+		System.out.println(fruta);
 	}
 
 	public int excluirFruta() {
@@ -117,6 +107,7 @@ public class Atendente {
 		System.out.println("Digite o índice da fruta que deseja excluir: ");
 		System.out.print(">");
 		int indice = leia.nextInt();
+		leia.nextLine();
 		return indice;
 	}
 
@@ -126,6 +117,7 @@ public class Atendente {
 		System.out.println("Digite o índice da verdura que deseja excluir: ");
 		System.out.print(">");
 		int indice = leia.nextInt();
+		leia.nextLine();
 		return indice;
 	}
 }
