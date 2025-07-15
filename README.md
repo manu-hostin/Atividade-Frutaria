@@ -33,31 +33,32 @@ Ele permite cadastrar diferentes tipos de produtos (como frutas e verduras) em u
 ### 👨‍👩‍👧‍👦 Polimorfismo
 
 Permite usar uma lista genérica que armazena objetos de diferentes subclasses:
-
+```java
 List<Produto> lista = new ArrayList<>();
 // Pode armazenar Fruta, Verdura, etc.
+```
 
 📝 Sobrescrita do Método toString()
 Cada subclasse implementa sua própria versão para exibir os dados:
-
+```java
 @Override
 public String toString() {
     return "Fruta [nome=" + nome + ", tipo=" + tipo + ", preço=" + preco + "]";
 }
-
+```
 Ao imprimir:
-
+```java
 System.out.println(produto); // Chama automaticamente o toString da subclasse
-
+```
 🔍 Uso do instanceof
 Permite verificar o tipo real do objeto para lógica condicional:
-
+```java
 if (produto instanceof Fruta fruta) {
     System.out.println("É uma fruta: " + fruta.getNome());
 } else if (produto instanceof Verdura verdura) {
     System.out.println("É uma verdura: " + verdura.getNome());
 }
-
+```
 # 📦 Tipos de Produtos
 
 | Produto  | Classe  | Atributos principais                      |
