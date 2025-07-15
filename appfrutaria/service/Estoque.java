@@ -2,98 +2,83 @@ package br.com.appfrutaria.service;
 
 import br.com.appfrutaria.model.Fruta;
 import br.com.appfrutaria.model.Verdura;
+import br.com.appfrutaria.model.Produto;
 import java.util.ArrayList;
 import java.util.List;
 import br.com.appfrutaria.view.Atendente;
 
 public class Estoque {
-	List<Fruta> estoqueFruta;
-	List<Verdura> estoqueVerdura;
+	List<Produto> estoque;
 
 	public Estoque() {
-		estoqueFruta = new ArrayList<>();
-		estoqueVerdura = new ArrayList<>();
+		estoque = new ArrayList<>();
 	}
 
-	public List<Fruta> getEstoqueFruta() {
-		return estoqueFruta;
+	public List<Produto> getEstoque() {
+		return estoque;
 	}
 
-	public void setEstoqueFruta(List<Fruta> estoqueFruta) {
-		this.estoqueFruta = estoqueFruta;
+	public void setEstoque(List<Produto> estoque) {
+		this.estoque = estoque;
 	}
 
-	public List<Verdura> getEstoqueVerdura() {
-		return estoqueVerdura;
-	}
+	public void gerenciarEstoque(int opcaoMenuEscolhida, Atendente atendente) {
 
-	public void setEstoqueVerdura(List<Verdura> estoqueVerdura) {
-		this.estoqueVerdura = estoqueVerdura;
-	}
+		switch (opcaoMenuEscolhida) {
 
-	public void gerenciarEstoque(int opcaoMenuEscolhida, Atendente atendente, int escolha) {
+		case 0:
+			System.out.println("Saindo...");
+			break;
 
-		if (escolha == 1) {
+		case 1:
+			String nomeFruta = atendente.cadastrarNomeFruta();
+			double precoFruta = atendente.cadastrarPreco();
+			int quantidadeFruta = atendente.cadastrarQuantidade();
+			double pesoFruta = atendente.cadastrarPesoFruta();
 
-			switch (opcaoMenuEscolhida) {
-			case 0:
-				System.out.println("Saindo...");
-				break;
+			Produto fruta = new Fruta(nomeFruta, precoFruta, quantidadeFruta, pesoFruta);
+			estoque.add(fruta);
 
-			case 1:
-				String nomeFruta = atendente.cadastrarNomeFruta();
-				double precoFruta = atendente.cadastrarPreco();
-				int quantidadeFruta = atendente.cadastrarQuantidade();
-				double pesoFruta = atendente.cadastrarPesoFruta();
+			break;
 
-				Fruta fruta = new Fruta(nomeFruta, precoFruta, quantidadeFruta, pesoFruta);
-				estoqueFruta.add(fruta);
-				break;
+		case 2:
+			String nomeVerdura = atendente.cadastrarNomeVerdura();
+			double precoVerdura = atendente.cadastrarPreco();
+			int quantidadeVerdura = atendente.cadastrarQuantidade();
+			String tipoVerdura = atendente.cadastrarTipoVerdura();
 
-			case 2:
-				for (int novaFruta = 0; novaFruta < estoqueFruta.size(); novaFruta++) {
-					System.out.println("\n-------------------------------");
-					System.out.println("Índice: " + novaFruta);
-					atendente.imprimirFruta(estoqueFruta.get(novaFruta));
+			Produto verdura = new Verdura(nomeVerdura, precoVerdura, quantidadeVerdura, tipoVerdura);
+			estoque.add(verdura);
+
+			break;
+
+		case 3:
+			for (int i = 0; i < estoque.size(); i++) {
+				Produto produto = estoque.get(i);
+				System.out.println("\n-------------------------------");
+				System.out.println("Índice: " + i);
+
+				if (produto instanceof Fruta ImpFruta) {
+					atendente.imprimirFruta(ImpFruta);
+				} else if (produto instanceof Verdura ImpVerdura) {
+					atendente.imprimirVerdura(ImpVerdura);
 				}
-				break;
 
-			case 3:
-				int indice = atendente.excluirFruta();
-				estoqueFruta.remove(indice);
-				break;
+			}
+			break;
+
+		case 4:
+			int indice = atendente.excluirFruta();
+
+			if (indice >= 0 && indice < estoque.size()) {
+				Produto removido = estoque.remove(indice);
+				System.out.println("✅ Produto \"" + removido.getNome() + "\" removido com sucesso!");
+			} else {
+				System.out.println("⚠️ Produto não encontrado!");
 			}
 
-		} else if (escolha == 2) {
-			switch (opcaoMenuEscolhida) {
-
-			case 0:
-				System.out.println("Saindo...");
-				break;
-
-			case 1:
-				String nomeVerdura = atendente.cadastrarNomeVerdura();
-				double precoVerdura = atendente.cadastrarPreco();
-				int quantidadeVerdura = atendente.cadastrarQuantidade();
-				String tipoVerdura = atendente.cadastrarTipoVerdura();
-
-				Verdura verdura = new Verdura(nomeVerdura, precoVerdura, quantidadeVerdura, tipoVerdura);
-				estoqueVerdura.add(verdura);
-				break;
-
-			case 2:
-				for (int novaVerdura = 0; novaVerdura < estoqueVerdura.size(); novaVerdura++) {
-					System.out.println("\n-------------------------------");
-					System.out.println("Índice: " + novaVerdura);
-					atendente.imprimirVerdura(estoqueVerdura.get(novaVerdura));
-				}
-				break;
-
-			case 3:
-				int i = atendente.excluirVerdura();
-				estoqueVerdura.remove(i);
-				break;
-			}
+			break;
 		}
+
 	}
 }
