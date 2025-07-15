@@ -9,15 +9,13 @@ public class Main {
 
 		Atendente atendente = new Atendente();
 
-		int escolha = 0;
 		int opcaoMenuEscolhida = 0;
 
 		Estoque estoque = new Estoque();
 
 		do {
-			escolha = atendente.escolha();
 			opcaoMenuEscolhida = atendente.menuPrincipal();
-			estoque.gerenciarEstoque(opcaoMenuEscolhida, atendente, escolha);
+			estoque.gerenciarEstoque(opcaoMenuEscolhida, atendente);
 
 		} while (opcaoMenuEscolhida != 0);
 	}
