@@ -34,7 +34,6 @@ Ele permite cadastrar diferentes tipos de produtos (como frutas e verduras) em u
 
 Permite usar uma lista genérica que armazena objetos de diferentes subclasses:
 
-```java
 List<Produto> lista = new ArrayList<>();
 // Pode armazenar Fruta, Verdura, etc.
 
@@ -109,4 +108,3 @@ Desenvolvido como prática de Programação Orientada a Objetos em Java
 Disciplina: Programação Orientada a Objetos
 Instituição: SENAI — Jaraguá do Sul
 
-<p align="center"> <img src="https://img.shields.io/badge/Java-17-red?style=for-the-badge&logo=java&logoColor=white" alt="Java 17" /> <img src="https://img.shields.io/badge/OOP-Prática-blue?style=for-the-badge" alt="OOP Prática" /> </p> ```
