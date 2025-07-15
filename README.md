@@ -58,13 +58,18 @@ if (produto instanceof Fruta fruta) {
     System.out.println("É uma verdura: " + verdura.getNome());
 }
 
-📦 Tipos de Produtos
-Produto	Classe	Atributos principais
-🍎 Fruta	Fruta	nome, tipo, preço, quantidade
-🥬 Verdura	Verdura	nome, orgânico (boolean), preço, quantidade
+# 📦 Tipos de Produtos
 
-🧪 Exemplo de Uso
+| Produto  | Classe  | Atributos principais                      |
+|----------|---------|------------------------------------------|
+| 🍎 Fruta   | Fruta   | nome, tipo, preço, quantidade             |
+| 🥬 Verdura | Verdura | nome, orgânico (boolean), preço, quantidade |
 
+---
+
+# 🧪 Exemplo de Uso
+
+```java
 Produto fruta = new Fruta("Maçã", "Vermelha", 2.50, 10);
 Produto verdura = new Verdura("Alface", true, 1.75, 5);
 
@@ -107,4 +112,3 @@ Produto (abstract)
 Desenvolvido como prática de Programação Orientada a Objetos em Java
 Disciplina: Programação Orientada a Objetos
 Instituição: SENAI — Jaraguá do Sul
-
