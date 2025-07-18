@@ -22,19 +22,32 @@ public class Atendente {
 	}
 
 	public int menuPrincipal() {
-		System.out.println("\n===============================");
-		System.out.println("      🌿 TABELA FRUTARIA 🌿");
-		System.out.println("===============================");
-		System.out.println("  1️  Cadastrar fruta;");
-		System.out.println("  2️  Cadastrar Verdura;");
-		System.out.println("  3  Listar produtos;");
-		System.out.println("  4  Excluir produto.");
-		System.out.println("-------------------------------");
-		System.out.println("  0  Sair");
-		System.out.println("===============================");
-		System.out.print("Escolha uma opção: > ");
-		int opcaoMenu = leia.nextInt();
-		leia.nextLine();
+		int opcaoMenu = 0;
+		boolean valido = false;
+
+		do {
+			System.out.println("\n===============================");
+			System.out.println("      🌿 TABELA FRUTARIA 🌿");
+			System.out.println("===============================");
+			System.out.println("  1️  Cadastrar fruta;");
+			System.out.println("  2️  Cadastrar Verdura;");
+			System.out.println("  3  Listar produtos;");
+			System.out.println("  4  Excluir produto.");
+			System.out.println("-------------------------------");
+			System.out.println("  0  Sair");
+			System.out.println("===============================");
+			System.out.print("Escolha uma opção: > ");
+
+			if (leia.hasNextInt()) {
+				opcaoMenu = leia.nextInt();
+				leia.nextLine();
+				valido = true;
+			} else {
+				System.out.println("\nEntrada inválida. Tente novamente!");
+				leia.next();
+			}
+		} while (!valido);
+
 		return opcaoMenu;
 
 	}
@@ -58,24 +71,69 @@ public class Atendente {
 	}
 
 	public double cadastrarPreco() {
-		System.out.println("\nDigite o preço:");
-		System.out.print("> R$");
-		double preco = leia.nextDouble();
+		double preco = 0;
+		boolean valido = false;
+
+		do {
+			System.out.println("\nDigite o preço:");
+			System.out.print("> R$");
+
+			if (leia.hasNextDouble()) {
+				preco = leia.nextDouble();
+				leia.nextLine();
+				valido = true;
+
+			} else {
+				System.out.println("\nEntrada inválida. Tente novamente!");
+				leia.next();
+			}
+
+		} while (!valido);
+
 		return preco;
+
 	}
 
 	public int cadastrarQuantidade() {
-		System.out.println("\nDigite a quantidade: ");
-		System.out.print(">");
-		int quantidade = leia.nextInt();
-		leia.nextLine();
+		int quantidade = 0;
+		boolean valido = false;
+
+		do {
+			System.out.println("\nDigite a quantidade: ");
+			System.out.print(">");
+
+			if (leia.hasNextInt()) {
+				quantidade = leia.nextInt();
+				leia.nextLine();
+				valido = true;
+			} else {
+				System.out.println("\nEntrada inválida. Tente novamente!");
+				leia.next();
+			}
+
+		} while (!valido);
+
 		return quantidade;
 	}
 
 	public double cadastrarPesoFruta() {
-		System.out.println("\nDigite o peso: ");
-		System.out.print(">");
-		double peso = leia.nextDouble();
+		double peso = 0;
+		boolean valido = false;
+
+		do {
+			System.out.println("\nDigite o peso: ");
+			System.out.print(">");
+
+			if (leia.hasNextDouble()) {
+				peso = leia.nextDouble();
+				leia.nextLine();
+				valido = true;
+			} else {
+				System.out.println("\nEntrada inválida. Tente novamente!");
+				leia.next();
+			}
+		} while (!valido);
+
 		return peso;
 	}
 
@@ -102,22 +160,48 @@ public class Atendente {
 	}
 
 	public int excluirFruta() {
-		System.out.println("\n-------------------------------");
-		System.out.println("Excluir fruta:");
-		System.out.println("Digite o índice da fruta que deseja excluir: ");
-		System.out.print(">");
-		int indice = leia.nextInt();
-		leia.nextLine();
+		int indice = 0;
+		boolean valido = false;
+
+		do {
+			System.out.println("\n-------------------------------");
+			System.out.println("Excluir fruta:");
+			System.out.println("Digite o índice da fruta que deseja excluir: ");
+			System.out.print(">");
+
+			if (leia.hasNextInt()) {
+				indice = leia.nextInt();
+				leia.nextLine();
+				valido = true;
+			} else {
+				System.out.println("\nEntrada inválida. Tente novamente!");
+				leia.next();
+			}
+		} while (!valido);
+
 		return indice;
 	}
 
 	public int excluirVerdura() {
-		System.out.println("\n--------------------------------");
-		System.out.println("Excluir verdura:");
-		System.out.println("Digite o índice da verdura que deseja excluir: ");
-		System.out.print(">");
-		int indice = leia.nextInt();
-		leia.nextLine();
+		int indice = 0;
+		boolean valido = false;
+
+		do {
+			System.out.println("\n-------------------------------");
+			System.out.println("Excluir verdura:");
+			System.out.println("Digite o índice da verdura que deseja excluir: ");
+			System.out.print(">");
+
+			if (leia.hasNextInt()) {
+				indice = leia.nextInt();
+				leia.nextLine();
+				valido = true;
+			} else {
+				System.out.println("\nEntrada inválida. Tente novamente!");
+				leia.next();
+			}
+		} while (!valido);
+
 		return indice;
 	}
 }
