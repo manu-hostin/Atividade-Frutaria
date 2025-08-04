@@ -6,8 +6,12 @@ import br.com.appfrutaria.model.Produto;
 import java.util.ArrayList;
 import java.util.List;
 import br.com.appfrutaria.view.Atendente;
+import java.util.Scanner;
 
 public class Estoque {
+
+	Scanner leia = new Scanner(System.in);
+
 	List<Produto> estoque;
 
 	public Estoque() {
@@ -68,12 +72,20 @@ public class Estoque {
 			break;
 
 		case 4:
-			int indice = atendente.excluirFruta();
+			String nomeParaExcluir = atendente.solicitarNomeParaExcluir();
+			boolean removido = false;
 
-			if (indice >= 0 && indice < estoque.size()) {
-				Produto removido = estoque.remove(indice);
-				System.out.println("✅ Produto \"" + removido.getNome() + "\" removido com sucesso!");
-			} else {
+			for (int i = 0; i < estoque.size(); i++) {
+				Produto produto = estoque.get(i);
+				if (produto.getNome().equalsIgnoreCase(nomeParaExcluir)) {
+					estoque.remove(i);
+					System.out.println("✅ Produto \"" + produto.getNome() + "\" removido com sucesso!");
+					removido = true;
+					break;
+				}
+			}
+
+			if (!removido) {
 				System.out.println("⚠️ Produto não encontrado!");
 			}
 
