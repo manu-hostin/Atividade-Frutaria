@@ -23,7 +23,7 @@ public class Atendente {
 
 	public int menuPrincipal() {
 		int opcaoMenu = 0;
-		boolean valido = false;
+		boolean invalido = true;
 
 		do {
 			System.out.println("\n===============================");
@@ -37,16 +37,14 @@ public class Atendente {
 			System.out.println("  0  Sair");
 			System.out.println("===============================");
 			System.out.print("Escolha uma opção: > ");
-
-			if (leia.hasNextInt()) {
-				opcaoMenu = leia.nextInt();
-				leia.nextLine();
-				valido = true;
-			} else {
-				System.out.println("\nEntrada inválida. Tente novamente!");
-				leia.next();
+			String texto = leia.nextLine();
+			try {
+				opcaoMenu = Integer.parseInt(texto);
+				invalido = false;
+			} catch (NumberFormatException erro) {
+				System.out.println("\n❌ Erro! Digite uma entrada válida.");
 			}
-		} while (!valido);
+		} while (invalido);
 
 		return opcaoMenu;
 
@@ -72,23 +70,21 @@ public class Atendente {
 
 	public double cadastrarPreco() {
 		double preco = 0;
-		boolean valido = false;
+		boolean invalido = true;
 
 		do {
 			System.out.println("\nDigite o preço:");
 			System.out.print("> R$");
+			String texto = leia.nextLine();
 
-			if (leia.hasNextDouble()) {
-				preco = leia.nextDouble();
-				leia.nextLine();
-				valido = true;
-
-			} else {
-				System.out.println("\nEntrada inválida. Tente novamente!");
-				leia.next();
+			try {
+				preco = Double.parseDouble(texto);
+				invalido = false;
+			} catch (NumberFormatException erro) {
+				System.out.println("\n❌ Erro! Digite uma entrada válida.");
 			}
 
-		} while (!valido);
+		} while (invalido);
 
 		return preco;
 
@@ -96,43 +92,41 @@ public class Atendente {
 
 	public int cadastrarQuantidade() {
 		int quantidade = 0;
-		boolean valido = false;
+		boolean invalido = true;
 
 		do {
 			System.out.println("\nDigite a quantidade: ");
 			System.out.print(">");
+			String texto = leia.nextLine();
 
-			if (leia.hasNextInt()) {
-				quantidade = leia.nextInt();
-				leia.nextLine();
-				valido = true;
-			} else {
-				System.out.println("\nEntrada inválida. Tente novamente!");
-				leia.next();
+			try {
+				quantidade = Integer.parseInt(texto);
+				invalido = false;
+			} catch (NumberFormatException erro) {
+				System.out.println("\n❌ Erro! Digite uma entrada válida.");
 			}
 
-		} while (!valido);
+		} while (invalido);
 
 		return quantidade;
 	}
 
 	public double cadastrarPesoFruta() {
 		double peso = 0;
-		boolean valido = false;
+		boolean invalido = true;
 
 		do {
 			System.out.println("\nDigite o peso: ");
 			System.out.print(">");
+			String texto = leia.nextLine();
 
-			if (leia.hasNextDouble()) {
-				peso = leia.nextDouble();
-				leia.nextLine();
-				valido = true;
-			} else {
-				System.out.println("\nEntrada inválida. Tente novamente!");
-				leia.next();
+			try {
+				peso = Integer.parseInt(texto);
+				invalido = false;
+			} catch (NumberFormatException erro) {
+				System.out.println("\n❌ Erro! Digite uma entrada válida.");
 			}
-		} while (!valido);
+		} while (invalido);
 
 		return peso;
 	}
@@ -159,49 +153,12 @@ public class Atendente {
 		System.out.println(fruta);
 	}
 
-	public int excluirFruta() {
-		int indice = 0;
-		boolean valido = false;
-
-		do {
-			System.out.println("\n-------------------------------");
-			System.out.println("Excluir fruta:");
-			System.out.println("Digite o índice da fruta que deseja excluir: ");
-			System.out.print(">");
-
-			if (leia.hasNextInt()) {
-				indice = leia.nextInt();
-				leia.nextLine();
-				valido = true;
-			} else {
-				System.out.println("\nEntrada inválida. Tente novamente!");
-				leia.next();
-			}
-		} while (!valido);
-
-		return indice;
+	public String solicitarNomeParaExcluir() {
+		System.out.println("\n-------------------------------");
+		System.out.println("Excluir produto:");
+		System.out.println("Digite o nome do produto que deseja excluir: ");
+		System.out.print(">");
+		return leia.nextLine();
 	}
 
-	public int excluirVerdura() {
-		int indice = 0;
-		boolean valido = false;
-
-		do {
-			System.out.println("\n-------------------------------");
-			System.out.println("Excluir verdura:");
-			System.out.println("Digite o índice da verdura que deseja excluir: ");
-			System.out.print(">");
-
-			if (leia.hasNextInt()) {
-				indice = leia.nextInt();
-				leia.nextLine();
-				valido = true;
-			} else {
-				System.out.println("\nEntrada inválida. Tente novamente!");
-				leia.next();
-			}
-		} while (!valido);
-
-		return indice;
-	}
 }
